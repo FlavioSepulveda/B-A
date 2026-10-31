@@ -1,179 +1,240 @@
+/* ==========================================================
+   FICHA DE PERSONAGEM
+   Depende das variáveis definidas em style.css
+   ========================================================== */
+
 .sheet {
-  background: #141110;
-  border: 2px solid var(--gold);
-  border-radius: 8px;
-  padding: 1.5rem;
-  font-size: 0.9rem;
-  line-height: 1.45;
+    background: linear-gradient(180deg, var(--bg-elevated), var(--bg-base));
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    padding: 1.75rem 1.75rem 1.5rem;
+    font-size: .9rem;
+    line-height: 1.5;
+    box-shadow: var(--shadow-md);
+    position: relative;
+}
+
+/* Filete dourado decorativo no topo */
+.sheet::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 50%; transform: translateX(-50%);
+    width: 60%; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+    border-radius: 2px;
 }
 
 .sheet h2 {
-  border: none;
-  text-align: center;
-  font-size: 1.3rem;
-  color: var(--gold-2);
-  letter-spacing: 0.1em;
-  margin: 0 0 0.2rem;
-  padding: 0;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 1.35rem;
+    color: var(--accent-gold-hi);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin: 0 0 .35rem;
+    padding: 0;
 }
 
 .sheet .sub {
-  text-align: center;
-  color: var(--muted);
-  font-style: italic;
-  margin-bottom: 1rem;
-  font-size: 0.85rem;
+    text-align: center;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 1.4rem;
+    font-size: .85rem;
 }
 
 .sheet h3 {
-  color: var(--gold);
-  font-size: 0.9rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  border-bottom: 1px dashed var(--border);
-  padding-bottom: 0.3rem;
-  margin: 1.2rem 0 0.6rem;
-  font-weight: normal;
+    color: var(--accent-gold);
+    font-family: 'Cinzel', serif;
+    font-size: .82rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: .35rem;
+    margin: 1.4rem 0 .75rem;
+    font-weight: 600;
 }
 
 .sheet h3:first-of-type { margin-top: 0; }
 
+/* Grid de stats */
 .sheet .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 0.6rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: .65rem;
 }
 
 .sheet .stat {
-  background: var(--panel-2);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 0.5rem 0.7rem;
+    background: var(--bg-input);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    padding: .55rem .75rem;
+    transition: border-color .15s;
 }
 
+.sheet .stat:hover { border-color: var(--accent-gold); }
+
 .sheet .stat .lbl {
-  font-size: 0.7rem;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+    font-size: .68rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: .08em;
 }
 
 .sheet .stat .val {
-  font-size: 1.2rem;
-  color: var(--gold-2);
-  font-weight: bold;
-  margin-top: 0.15rem;
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    color: var(--accent-gold-hi);
+    font-weight: 700;
+    margin-top: .15rem;
 }
 
-.sheet .stat .val.small { font-size: 0.95rem; }
+.sheet .stat .val.small { font-size: .95rem; }
 
+/* Tabela de atributos */
 .sheet .attr-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.85rem;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .85rem;
 }
 
 .sheet .attr-table th,
 .sheet .attr-table td {
-  text-align: left;
-  padding: 0.4rem 0.6rem;
-  border-bottom: 1px solid var(--border);
+    text-align: left;
+    padding: .45rem .6rem;
+    border-bottom: 1px solid var(--border-subtle);
 }
 
 .sheet .attr-table th {
-  color: var(--muted);
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: normal;
+    color: var(--text-muted);
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-weight: 600;
 }
 
-.sheet .attr-table td.dice { color: var(--gold-2); font-weight: bold; }
+.sheet .attr-table tr:hover td { background: rgba(255,255,255,.02); }
 
+.sheet .attr-table td.dice {
+    color: var(--accent-gold-hi);
+    font-weight: 700;
+    font-family: 'Cinzel', serif;
+}
+
+/* Tags */
 .sheet .tag {
-  display: inline-block;
-  padding: 0.15rem 0.5rem;
-  border-radius: 3px;
-  font-size: 0.78rem;
-  margin: 0.15rem 0.3rem 0.15rem 0;
-  border: 1px solid var(--border);
-  background: var(--panel-2);
+    display: inline-block;
+    padding: .18rem .6rem;
+    border-radius: 999px;
+    font-size: .76rem;
+    margin: .15rem .3rem .15rem 0;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-input);
+    color: var(--text-secondary);
 }
 
-.sheet .tag.gold { border-color: var(--gold); color: var(--gold-2); }
+.sheet .tag.gold {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold-hi);
+    background: rgba(201,162,39,.08);
+}
 
+/* Badges de espectro — agora usando os aliases definidos */
 .sheet .spectrum-badge {
-  display: inline-block;
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.82rem;
-  border: 1px solid var(--gold);
-  color: var(--gold-2);
-  background: rgba(201,162,39,0.1);
+    display: inline-block;
+    padding: .3rem .85rem;
+    border-radius: 999px;
+    font-size: .8rem;
+    font-weight: 600;
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold-hi);
+    background: rgba(201,162,39,.1);
 }
 
-.sheet .spectrum-badge.ig { border-color: #b83a2a; color: #e08a7a; background: rgba(184,58,42,0.12); }
-.sheet .spectrum-badge.ce { border-color: var(--blue); color: #9abce0; background: rgba(63,111,159,0.12); }
-.sheet .spectrum-badge.vi { border-color: var(--green); color: #9ad0a8; background: rgba(74,122,74,0.12); }
-.sheet .spectrum-badge.so { border-color: var(--solar); color: #e8d27a; background: rgba(184,145,42,0.12); }
-.sheet .spectrum-badge.in { border-color: var(--violet); color: #c4a8e0; background: rgba(106,74,143,0.12); }
-.sheet .spectrum-badge.al { border-color: var(--white); color: #eee; background: rgba(217,212,204,0.12); }
+.sheet .spectrum-badge.ig { border-color: #b83a2a; color: #e08a7a; background: rgba(184,58,42,.12); }
+.sheet .spectrum-badge.ce { border-color: var(--blue);   color: #9abce0; background: rgba(90,127,166,.12); }
+.sheet .spectrum-badge.vi { border-color: var(--green);  color: #9ad0a8; background: rgba(92,138,106,.12); }
+.sheet .spectrum-badge.so { border-color: var(--solar);  color: #e8d27a; background: rgba(184,145,42,.12); }
+.sheet .spectrum-badge.in { border-color: var(--violet); color: #c4a8e0; background: rgba(125,91,166,.12); }
+.sheet .spectrum-badge.al { border-color: var(--white);  color: #eee;    background: rgba(232,226,214,.1); }
 
+/* Blocos descritivos */
 .sheet .desc-block {
-  background: var(--panel-2);
-  border-left: 3px solid var(--gold);
-  padding: 0.6rem 0.9rem;
-  margin: 0.5rem 0;
-  font-size: 0.85rem;
-  border-radius: 0 4px 4px 0;
+    background: var(--bg-input);
+    border-left: 3px solid var(--accent-gold);
+    padding: .7rem 1rem;
+    margin: .6rem 0;
+    font-size: .85rem;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
 
 .sheet .desc-block .lbl {
-  color: var(--gold);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  display: block;
-  margin-bottom: 0.25rem;
+    color: var(--accent-gold);
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-weight: 600;
+    display: block;
+    margin-bottom: .3rem;
 }
 
+/* Habilidades de volume */
 .sheet .vol-ability {
-  display: flex;
-  gap: 0.7rem;
-  padding: 0.5rem 0;
-  border-bottom: 1px dashed var(--border);
+    display: flex;
+    gap: .75rem;
+    padding: .6rem 0;
+    border-bottom: 1px dashed var(--border-subtle);
 }
 
 .sheet .vol-ability:last-child { border-bottom: none; }
 
 .sheet .vol-ability .vol-num {
-  color: var(--gold-2);
-  font-weight: bold;
-  min-width: 30px;
-  font-size: 0.85rem;
+    color: var(--accent-gold-hi);
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    min-width: 32px;
+    font-size: .85rem;
 }
 
-.sheet .vol-ability .vol-body {
-  flex: 1;
-  font-size: 0.85rem;
-}
+.sheet .vol-ability .vol-body { flex: 1; font-size: .85rem; }
 
 .sheet .vol-ability .vol-name {
-  color: var(--gold);
-  font-weight: bold;
-  display: block;
-  margin-bottom: 0.15rem;
+    color: var(--accent-gold);
+    font-weight: 700;
+    display: block;
+    margin-bottom: .2rem;
 }
 
-.sheet .empty { color: var(--muted); font-style: italic; font-size: 0.85rem; }
+.sheet .empty {
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: .85rem;
+}
 
+/* ==========================================================
+   IMPRESSÃO
+   ========================================================== */
 @media print {
-  body { background: #fff; color: #000; }
-  header, .panel:not(#sheetPanel), .actions { display: none !important; }
-  main { display: block; padding: 0; }
-  #sheetPanel { display: block !important; border: none; background: none; }
-  .sheet { background: #fff; color: #000; border-color: #000; }
-  .sheet h2, .sheet h3, .sheet .stat .val, .sheet .attr-table td.dice { color: #000; }
-  .sheet .stat, .sheet .desc-block, .sheet .tag { background: #f5f5f5; border-color: #999; }
-  .btn { display: none; }
+    body { background: #fff !important; color: #000 !important; }
+    header, .panel:not(#sheetPanel), .actions { display: none !important; }
+    main { display: block; padding: 0; }
+    #sheetPanel { display: block !important; border: none; background: none; }
+
+    .sheet {
+        background: #fff !important;
+        color: #000 !important;
+        border: 1px solid #000 !important;
+        box-shadow: none !important;
+    }
+    .sheet::before { display: none; }
+    .sheet h2, .sheet h3,
+    .sheet .stat .val,
+    .sheet .attr-table td.dice { color: #000 !important; }
+
+    .sheet .stat,
+    .sheet .desc-block,
+    .sheet .tag,
+    .sheet .spectrum-badge { background: #f5f5f5 !important; border-color: #999 !important; }
+
+    .btn { display: none; }
 }

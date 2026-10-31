@@ -49,12 +49,10 @@ export const characterState = {
         this.favoriteWeapon = "";
         this.favoriteWeaponCategory = "";
         this.attributes = {
-            forca: 0,
-            destreza: 0,
-            constituicao: 0,
-            intelecto: 0,
-            vontade: 0,
-            percepcao: 0
+            vigor: 0,
+            dinamismo: 0,
+            razao: 0,
+            determinacao: 0
         };
         this.attributePoints = 4;
         this.skills = [];
@@ -149,18 +147,14 @@ export const characterState = {
 
     // Adiciona um item ao inventário
     addItem: function(itemName) {
-        // O inventário inicial possui 3 itens, mas a capacidade real é baseada em Constituição
-        // A regra diz: Capacidade = 5 + dados de Constituição
-        const capacity = 5 + this.attributes.constituicao;
-        
+        const capacity = 5 + (this.attributes.vigor || 0);
         if (this.inventory.length < capacity) {
             this.inventory.push(itemName);
             this.inventoryCapacity = capacity;
             return true;
-        } else {
-            console.warn(`Inventário cheio. Capacidade máxima: ${capacity}`);
-            return false;
         }
+        console.warn(`Inventário cheio. Capacidade máxima: ${capacity}`);
+        return false;
     },
 
     // Remove um item do inventário

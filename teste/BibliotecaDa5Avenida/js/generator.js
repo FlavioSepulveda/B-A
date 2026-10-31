@@ -1,6 +1,6 @@
 // js/generator.js
 import { characterState } from './state.js';
-import { SPECTERS, PATHS, VOCATIONS, SKILLS, AFFIRMATION_WORDS, ITEMS_CATEGORIES, NAMES } from './data.js';
+import { SPECTERS, PATHS, VOCATIONS, SKILLS, AFFIRMATION_WORDS, ITEMS, NAMES } from './data.js';
 
 export function generateRandomCharacter() {
     characterState.reset();

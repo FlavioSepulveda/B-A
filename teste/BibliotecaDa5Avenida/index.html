@@ -30,34 +30,34 @@
                 <div class="attributes-grid">
                     <div class="attribute-row">
                         <span>Vigor</span>
-                        <span class="attr-value" data-attribute-value="vigor">0d4</span>
                         <div class="attr-buttons">
-                            <button data-attribute="vigor" data-action="add">+</button>
                             <button data-attribute="vigor" data-action="remove">−</button>
+                            <span class="attr-value" data-attribute-value="vigor">0d4</span>
+                            <button data-attribute="vigor" data-action="add">+</button>
                         </div>
                     </div>
                     <div class="attribute-row">
                         <span>Dinamismo</span>
-                        <span class="attr-value" data-attribute-value="dinamismo">0d4</span>
                         <div class="attr-buttons">
-                            <button data-attribute="dinamismo" data-action="add">+</button>
                             <button data-attribute="dinamismo" data-action="remove">−</button>
+                            <span class="attr-value" data-attribute-value="dinamismo">0d4</span>
+                            <button data-attribute="dinamismo" data-action="add">+</button>
                         </div>
                     </div>
                     <div class="attribute-row">
                         <span>Razão</span>
-                        <span class="attr-value" data-attribute-value="razao">0d4</span>
                         <div class="attr-buttons">
-                            <button data-attribute="razao" data-action="add">+</button>
                             <button data-attribute="razao" data-action="remove">−</button>
+                            <span class="attr-value" data-attribute-value="razao">0d4</span>
+                            <button data-attribute="razao" data-action="add">+</button>
                         </div>
                     </div>
                     <div class="attribute-row">
                         <span>Determinação</span>
-                        <span class="attr-value" data-attribute-value="determinacao">0d4</span>
                         <div class="attr-buttons">
-                            <button data-attribute="determinacao" data-action="add">+</button>
                             <button data-attribute="determinacao" data-action="remove">−</button>
+                            <span class="attr-value" data-attribute-value="determinacao">0d4</span>
+                            <button data-attribute="determinacao" data-action="add">+</button>
                         </div>
                     </div>
                 </div>
@@ -116,19 +116,21 @@
                 <div id="path-info" class="info-box">Selecione um Caminho ou Vocação.</div>
             </section>
 
+            <!-- CORREÇÃO: Adicionado estilo direto para forçar flexbox em vez de grid -->
             <section class="sheet-section">
                 <h2>Perícias (<span id="skills-selected">0/5</span>)</h2>
-                <div id="skills-container" class="chips-container"></div>
+                <div id="skills-container" class="chips-container" style="display: flex; flex-wrap: wrap; gap: 0.5rem;"></div>
             </section>
 
             <section class="sheet-section">
                 <h2>Palavras de Afirmação (<span id="words-selected">0/2</span>)</h2>
-                <div id="words-container" class="chips-container"></div>
+                <div id="words-container" class="chips-container" style="display: flex; flex-wrap: wrap; gap: 0.5rem;"></div>
             </section>
 
             <section class="sheet-section">
                 <h2>Inventário (<span id="inventory-capacity">0/5</span>)</h2>
-                <div id="items-container" class="chips-container"></div>
+                <!-- Aqui forçamos os itens a ocuparem 100% da largura se forem grandes, e deixamos flexível -->
+                <div id="items-container" class="chips-container" style="display: flex; flex-wrap: wrap; gap: 0.5rem;"></div>
             </section>
         </div>
 
@@ -145,6 +147,7 @@
         <div id="status-message" class="status-message"></div>
     </main>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script type="module" src="js/app.js"></script>
 </body>
 </html>
