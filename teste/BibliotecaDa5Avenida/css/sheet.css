@@ -1,0 +1,179 @@
+.sheet {
+  background: #141110;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.sheet h2 {
+  border: none;
+  text-align: center;
+  font-size: 1.3rem;
+  color: var(--gold-2);
+  letter-spacing: 0.1em;
+  margin: 0 0 0.2rem;
+  padding: 0;
+}
+
+.sheet .sub {
+  text-align: center;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+
+.sheet h3 {
+  color: var(--gold);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px dashed var(--border);
+  padding-bottom: 0.3rem;
+  margin: 1.2rem 0 0.6rem;
+  font-weight: normal;
+}
+
+.sheet h3:first-of-type { margin-top: 0; }
+
+.sheet .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.6rem;
+}
+
+.sheet .stat {
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.5rem 0.7rem;
+}
+
+.sheet .stat .lbl {
+  font-size: 0.7rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sheet .stat .val {
+  font-size: 1.2rem;
+  color: var(--gold-2);
+  font-weight: bold;
+  margin-top: 0.15rem;
+}
+
+.sheet .stat .val.small { font-size: 0.95rem; }
+
+.sheet .attr-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.sheet .attr-table th,
+.sheet .attr-table td {
+  text-align: left;
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.sheet .attr-table th {
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: normal;
+}
+
+.sheet .attr-table td.dice { color: var(--gold-2); font-weight: bold; }
+
+.sheet .tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.78rem;
+  margin: 0.15rem 0.3rem 0.15rem 0;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+}
+
+.sheet .tag.gold { border-color: var(--gold); color: var(--gold-2); }
+
+.sheet .spectrum-badge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  border: 1px solid var(--gold);
+  color: var(--gold-2);
+  background: rgba(201,162,39,0.1);
+}
+
+.sheet .spectrum-badge.ig { border-color: #b83a2a; color: #e08a7a; background: rgba(184,58,42,0.12); }
+.sheet .spectrum-badge.ce { border-color: var(--blue); color: #9abce0; background: rgba(63,111,159,0.12); }
+.sheet .spectrum-badge.vi { border-color: var(--green); color: #9ad0a8; background: rgba(74,122,74,0.12); }
+.sheet .spectrum-badge.so { border-color: var(--solar); color: #e8d27a; background: rgba(184,145,42,0.12); }
+.sheet .spectrum-badge.in { border-color: var(--violet); color: #c4a8e0; background: rgba(106,74,143,0.12); }
+.sheet .spectrum-badge.al { border-color: var(--white); color: #eee; background: rgba(217,212,204,0.12); }
+
+.sheet .desc-block {
+  background: var(--panel-2);
+  border-left: 3px solid var(--gold);
+  padding: 0.6rem 0.9rem;
+  margin: 0.5rem 0;
+  font-size: 0.85rem;
+  border-radius: 0 4px 4px 0;
+}
+
+.sheet .desc-block .lbl {
+  color: var(--gold);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.sheet .vol-ability {
+  display: flex;
+  gap: 0.7rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.sheet .vol-ability:last-child { border-bottom: none; }
+
+.sheet .vol-ability .vol-num {
+  color: var(--gold-2);
+  font-weight: bold;
+  min-width: 30px;
+  font-size: 0.85rem;
+}
+
+.sheet .vol-ability .vol-body {
+  flex: 1;
+  font-size: 0.85rem;
+}
+
+.sheet .vol-ability .vol-name {
+  color: var(--gold);
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+.sheet .empty { color: var(--muted); font-style: italic; font-size: 0.85rem; }
+
+@media print {
+  body { background: #fff; color: #000; }
+  header, .panel:not(#sheetPanel), .actions { display: none !important; }
+  main { display: block; padding: 0; }
+  #sheetPanel { display: block !important; border: none; background: none; }
+  .sheet { background: #fff; color: #000; border-color: #000; }
+  .sheet h2, .sheet h3, .sheet .stat .val, .sheet .attr-table td.dice { color: #000; }
+  .sheet .stat, .sheet .desc-block, .sheet .tag { background: #f5f5f5; border-color: #999; }
+  .btn { display: none; }
+}

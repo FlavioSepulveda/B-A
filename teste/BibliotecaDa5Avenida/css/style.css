@@ -1,0 +1,86 @@
+:root {
+    --bg-dark: #12100e;
+    --bg-panel: #1c1916;
+    --bg-panel-hover: #282420;
+    --text-main: #e0d8c8;
+    --text-muted: #a39a8a;
+    --gold: #d4af37;
+    --purple: #7b5ea7;
+    --red: #9e2a2b;
+    --green: #4a7c59;
+    --border: #332d27;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Lora', serif;
+    line-height: 1.6;
+    background-image: radial-gradient(circle at top, #1c1916 0%, #12100e 100%);
+    min-height: 100vh;
+}
+
+header { text-align: center; padding: 2rem 1rem; border-bottom: 1px solid var(--border); background: rgba(18, 16, 14, 0.8); }
+h1 { font-family: 'Cinzel', serif; color: var(--gold); font-size: 2.5rem; letter-spacing: 2px; text-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
+.volume-badge { display: inline-block; margin-top: 0.5rem; padding: 0.2rem 1rem; background: var(--purple); color: white; border-radius: 20px; font-family: 'Cinzel', serif; font-size: 0.9rem; }
+
+.sheet-container { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+@media (max-width: 900px) { .sheet-container { grid-template-columns: 1fr; } }
+.column { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.sheet-section { background: var(--bg-panel); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+.sheet-section h2 { font-family: 'Cinzel', serif; color: var(--gold); font-size: 1.2rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+label { display: block; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.3rem; margin-top: 1rem; }
+input[type="text"], select { width: 100%; padding: 0.8rem; background: #0f0e0c; border: 1px solid var(--border); color: var(--text-main); border-radius: 4px; font-family: 'Lora', serif; font-size: 1rem; }
+input[type="text"]:focus, select:focus { outline: none; border-color: var(--gold); }
+.info-box { background: rgba(0,0,0,0.3); border-left: 3px solid var(--gold); padding: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted); font-style: italic; }
+
+.attributes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 500px) { .attributes-grid { grid-template-columns: 1fr; } }
+.attribute-row { display: flex; align-items: center; justify-content: space-between; background: #0f0e0c; padding: 0.5rem 1rem; border-radius: 4px; border: 1px solid var(--border); flex-wrap: wrap; gap: 0.5rem; }
+.attribute-row > span:first-child { width: 100%; text-align: center; font-weight: bold; color: var(--gold); font-family: 'Cinzel', serif; }
+.attr-value { font-weight: bold; color: var(--gold); font-size: 1.1rem; width: 40px; text-align: center; }
+.attr-buttons { display: flex; gap: 0.5rem; }
+.attr-buttons button { width: 30px; height: 30px; background: var(--bg-panel-hover); border: 1px solid var(--border); color: var(--text-main); border-radius: 4px; cursor: pointer; font-size: 1.2rem; transition: all 0.2s; }
+.attr-buttons button:hover:not(:disabled) { background: var(--purple); color: white; }
+.attr-buttons button:disabled { opacity: 0.3; cursor: not-allowed; }
+
+.chips-container { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.chip { background: #0f0e0c; border: 1px solid var(--border); color: var(--text-muted); padding: 0.4rem 0.8rem; border-radius: 20px; cursor: pointer; font-family: 'Lora', serif; font-size: 0.85rem; transition: all 0.2s; }
+.chip:hover:not(:disabled) { border-color: var(--gold); color: var(--gold); }
+.chip.selected { background: var(--purple); color: white; border-color: var(--purple); }
+.chip:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.derived-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.derived-grid div { background: #0f0e0c; padding: 1rem; text-align: center; border-radius: 4px; border: 1px solid var(--border); }
+.derived-grid strong { display: block; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+.derived-grid span { font-family: 'Cinzel', serif; font-size: 1.5rem; color: var(--gold); }
+.highlight { color: var(--gold); font-weight: bold; }
+
+.actions-bar { grid-column: 1 / -1; margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; align-items: center; }
+.validation-box { width: 100%; background: var(--bg-panel); padding: 1rem; border-radius: 8px; border: 1px solid var(--border); }
+.validation-box ul { list-style: none; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+.validation-box li { font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; }
+.validation-box li::before { content: "⏳"; }
+.validation-box li.ok::before { content: "✅"; }
+.validation-box li.ok { color: var(--green); }
+.validation-summary { text-align: center; margin-top: 1rem; font-weight: bold; font-family: 'Cinzel', serif; }
+.validation-summary.valid { color: var(--green); }
+.validation-summary.invalid { color: var(--text-muted); }
+
+.buttons { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+button.btn-primary, button.btn-secondary, button.btn-danger { padding: 0.8rem 1.5rem; border: none; border-radius: 4px; font-family: 'Cinzel', serif; font-weight: bold; cursor: pointer; transition: all 0.2s; }
+.btn-primary { background: var(--gold); color: #000; }
+.btn-primary:hover { background: #f0c94a; }
+.btn-primary.active { background: var(--purple); color: white; }
+.btn-secondary { background: var(--bg-panel-hover); color: var(--text-main); border: 1px solid var(--border); }
+.btn-secondary:hover { background: var(--border); }
+.btn-danger { background: transparent; color: var(--red); border: 1px solid var(--red); }
+.btn-danger:hover { background: var(--red); color: white; }
+
+.status-message { grid-column: 1 / -1; text-align: center; padding: 1rem; border-radius: 4px; font-weight: bold; opacity: 0; transition: opacity 0.3s; }
+.status-message.success { background: var(--green); color: white; opacity: 1; }
+.status-message.error { background: var(--red); color: white; opacity: 1; }
+.status-message.info { background: var(--purple); color: white; opacity: 1; }
